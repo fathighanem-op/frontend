@@ -17,8 +17,8 @@ jobs:
 
       - name: Sync frontend folder to app path
         run: |
-          rm -rf "/home/appttraining 2/frontend"
-          mv frontend "/home/appttraining 2/frontend"
+          rm -rf "/home/appttraining2/frontend"
+          mv frontend "/home/appttraining2/frontend"
 
       - name: Build & restart frontend service
         run: |
