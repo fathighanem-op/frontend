@@ -12,14 +12,12 @@ jobs:
     steps:
       - name: Checkout frontend code
         uses: actions/checkout@v4
-        with:
-          path: frontend
 
-      - name: Sync frontend folder to app path
-        run: |
-          rm -rf "/home/appttraining2/frontend"
-          mv frontend "/home/appttraining2/frontend"
+      - name: Create target folder
+        run: mkdir -p "/home/apptraining2/frontend"
+
+      - name: Sync project files
+        run: rsync -a --delete . "/home/apptraining2/frontend/"
 
       - name: Build & restart frontend service
-        run: |
-          docker compose -f "/home/appttraining 2/docker-compose.yaml" up -d --build frontend
+        run: docker compose -f "/home/apptraining2/docker-compose.yaml" up -d --build frontend
